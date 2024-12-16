@@ -1,24 +1,9 @@
 <!-- @format -->
 
-<template>
-	<div>
-		<!--  -->
-	</div>
-</template>
+<template></template>
 
 <script>
-	export default {
-		data() {
-			return {
-				uname: '张三',
-			};
-		},
-		methods: {
-			fn() {
-				//
-			},
-		},
-	};
+	export default {};
 </script>
 
 <style></style>
