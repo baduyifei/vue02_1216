@@ -2,9 +2,9 @@
 
 <template>
 	<div>
-		<button @click="fn">点击</button>
-		<div class="box1" v-show="controller"></div>
-		<div class="box2" v-if="controller"></div>
+		<button @click="key = !key">{{ key ? '折叠' : '展开' }}</button>
+		<div class="box1" v-show="key"></div>
+		<div class="box2" v-if="key"></div>
 	</div>
 </template>
 
@@ -12,18 +12,10 @@
 	export default {
 		data() {
 			return {
-				controller: true,
+				key: true,
 			};
 		},
-		methods: {
-			fn() {
-				if (this.controller) {
-					this.controller = false;
-				} else {
-					this.controller = true;
-				}
-			},
-		},
+		methods: {},
 	};
 </script>
 
