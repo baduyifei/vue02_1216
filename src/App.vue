@@ -2,9 +2,9 @@
 
 <template>
 	<div>
-		<h1>HELLO , WORLD !</h1>
-		<h1>{{ msg }}</h1>
-		<button @click="fn">点击翻转</button>
+		<button @click="fn">点击</button>
+		<div class="box1" v-show="controller"></div>
+		<div class="box2" v-if="controller"></div>
 	</div>
 </template>
 
@@ -12,20 +12,31 @@
 	export default {
 		data() {
 			return {
-				msg: '你好张三',
+				controller: true,
 			};
 		},
 		methods: {
 			fn() {
-				const arr = this.msg.split('');
-				const newArr = arr.reverse();
-				const msg2 = newArr.join('');
-				this.msg = msg2;
+				if (this.controller) {
+					this.controller = false;
+				} else {
+					this.controller = true;
+				}
 			},
 		},
 	};
 </script>
 
 <style>
-	/* CSS */
+	.box1 {
+		width: 300px;
+		height: 300px;
+		background-color: pink;
+		margin-bottom: 5px;
+	}
+	.box2 {
+		width: 300px;
+		height: 300px;
+		background-color: blue;
+	}
 </style>
