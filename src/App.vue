@@ -2,9 +2,18 @@
 
 <template>
 	<div>
-		<button @click="key = !key">{{ key ? '折叠' : '展开' }}</button>
-		<div class="box1" v-show="key"></div>
-		<div class="box2" v-if="key"></div>
+		<!-- 姓名: <input type="text"  :value="uname" /> <br /> -->
+		姓名: <input type="text" v-model="uname" /> <br />
+		<!-- 密码: <input type="password"  :value="pwd" /><br /> -->
+		密码: <input type="password" v-model="pwd" /><br />
+		性别: 男<input type="radio" v-model="gender" /> 女 <input type="radio" /> <br />
+		爱好: 打球<input type="checkbox" v-model="hobby" /> <br />
+		<textarea v-model="uname"></textarea>
+		<select v-model="num">
+			<option value="1">北京</option>
+			<option value="2">上海</option>
+			<option value="3">深圳</option>
+		</select>
 	</div>
 </template>
 
@@ -12,23 +21,21 @@
 	export default {
 		data() {
 			return {
-				key: true,
+				uname: '张三',
+				pwd: '123456',
+				gender: true,
+				hobby: true,
+				num: '2',
 			};
 		},
-		methods: {},
+		methods: {
+			fn() {
+				//
+			},
+		},
 	};
 </script>
 
 <style>
-	.box1 {
-		width: 300px;
-		height: 300px;
-		background-color: pink;
-		margin-bottom: 5px;
-	}
-	.box2 {
-		width: 300px;
-		height: 300px;
-		background-color: blue;
-	}
+	/*  */
 </style>
