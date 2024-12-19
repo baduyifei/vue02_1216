@@ -2,18 +2,14 @@
 
 <template>
 	<div>
-		<!--  -->
-		<h1>{{ title }}</h1>
-		<h3>{{ channel }}</h3>
-		<button @click="edit">编辑</button>
-		<hr />
-		<div>
-			标题: <input type="text" v-model="myTitle" /> <br />
-			频道: <input type="text" v-model="myChannel" /><br />
-			<br />
-			<button @click="cancel">取消</button>
-			<button @click="save">确定</button>
-		</div>
+		<button @click="add">点击新增一个成员</button>
+		<ul>
+			<li v-for="(item, i) in list" :key="i">
+				姓名: {{ item.uname }} <br />
+				年龄: {{ item.age }} <br />
+				<hr />
+			</li>
+		</ul>
 	</div>
 </template>
 
@@ -21,31 +17,25 @@
 	export default {
 		data() {
 			return {
-				title: 'xx标题',
-				channel: 'xx频道',
-				myTitle: '',
-				myChannel: '',
+				list: [
+					{id: 1, uname: '张三', age: 18},
+					{id: 2, uname: '李四', age: 66},
+					{id: 3, uname: '王五', age: 88},
+				],
 			};
 		},
 		methods: {
-			edit() {
-				this.myTitle = this.title;
-				this.myChannel = this.channel;
-			},
-			save() {
-				this.title = this.myTitle;
-				this.channel = this.myChannel;
-				this.myTitle = '';
-				this.myChannel = '';
-			},
-			cancel() {
-				this.myTitle = '';
-				this.myChannel = '';
+			add() {
+				const one = {id: Math.random(), uname: '444', age: 18};
+				this.list.splice(1, 0, one);
 			},
 		},
 	};
 </script>
 
 <style>
-	/*  */
+	li {
+		background-color: pink;
+		font-size: 30px;
+	}
 </style>
